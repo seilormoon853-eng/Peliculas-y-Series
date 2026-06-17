@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería Giratoria</title>
+
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background: radial-gradient(circle, #101820, #050608);
+      overflow:hidden;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:white;
+    }
+
+    /* CONTENEDOR GENERAL */
+    .contenedor{
+      position:relative;
+      width:100%;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      perspective:1500px;
+    }
+
+    /* IMAGEN CENTRAL */
+    .centro{
+      position:absolute;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      overflow:hidden;
+      z-index:10;
+      box-shadow:0 0 40px rgba(255,255,255,0.5);
+    }
+
+    .centro img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* CARRUSEL */
+    .carrusel{
+      position:relative;
+      width:700px;
+      height:700px;
+      transform-style:preserve-3d;
+      animation:girar 30s linear infinite;
+    }
+
+    @keyframes girar{
+      from{
+        transform:rotateY(0deg);
+      }
+      to{
+        transform:rotateY(360deg);
+      }
+    }
+
+    /* TARJETAS */
+    .card{
+      position:absolute;
+      width:140px;
+      height:200px;
+      left:50%;
+      top:50%;
+      transform-style:preserve-3d;
+      transition:0.4s;
+    }
+
+    .card a{
+      text-decoration:none;
+      color:white;
+    }
+
+    .contenido{
+      background:#1b1f27;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 5px 20px rgba(0,0,0,0.5);
+      transition:0.4s;
+    }
+
+    .contenido:hover{
+      transform:scale(1.2);
+      box-shadow:0 0 25px #00ffff;
+    }
+
+    .contenido img{
+      width:100%;
+      height:140px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .info{
+      padding:10px;
+      text-align:center;
+    }
+
+    .info h3{
+      font-size:16px;
+      margin-bottom:5px;
+    }
+
+    .info p{
+      font-size:12px;
+      color:#ccc;
+    }
+
+.contenedor-boton{
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}
+
+.btn-encuesta{
+    display: inline-block;
+    padding: 15px 30px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-encuesta:hover{
+    background: #2563eb;
+}
+
+  </style>
+</head>
+<body>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    font-family:Arial, sans-serif;
+}
+
+#mensaje{
+    position:absolute;
+    top:20px;          /* Distancia desde arriba */
+    left:50%;
+    transform:translateX(-50%);
+    font-size:50px;
+    color:white;
+    text-align:center;
+    white-space:nowrap;
+}
+</style>
+
+</head>
+<body>
+
+<h1 id="mensaje"></h1>
+
+<script>
+const texto = "¡Bienvenido a nuestra página!";
+let i = 0;
+
+function escribir() {
+    if (i < texto.length) {
+        document.getElementById("mensaje").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escribir, 100);
+    }
+}
+
+escribir();
+</script>
+
+<div class="contenedor">
+
+    <div class="contenedor-boton">
+        <a href="ENCUESTA.html" class="btn-encuesta">
+           Ir a la Encuesta
+        </a>
+    </div>
+
+    <div class="carrusel">
+
+<div class="card" style="transform: rotateY(0deg) translateZ(700px);">
+          <a href="AVATAR.html"_blank">
+          <div class="contenido">
+            <img src="AVATAR.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(11.61deg) translateZ(700px);">
+   <a href="AVATAR 2.html" target="_blank">
+          <div class="contenido">
+            <img src="AVATAR 2.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(23.22deg) translateZ(700px);">
+   <a href="AVATAR 3.html" target="_blank">
+          <div class="contenido">
+            <img src="AVATAR 3.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(34.83deg) translateZ(700px);">
+   <a href="TITANIC.html" target="_blank">
+          <div class="contenido">
+            <img src="TITANIC.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(46.44deg) translateZ(700px);">
+  <a href="TIBURON.html">
+          <div class="contenido">
+            <img src="TIBURON.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(58.05deg) translateZ(700px);">
+   <a href="BAD BOYS.html">
+          <div class="contenido">
+            <img src="BAD BOYS.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(69.66deg) translateZ(700px);">
+    <a href="CHARLIE.html">
+          <div class="contenido">
+            <img src="charlie-y-la-fabrica-de-chocolate.jpg">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(81.27deg) translateZ(700px);">
+   <a href="BARBIE.html">
+          <div class="contenido">
+            <img src="BARBIE.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(92.88deg) translateZ(700px);">
+   <a href="EL DIABLO VISTE DE MODA.html">
+          <div class="contenido">
+            <img src="EL DIABLO VISTE DE MODA.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(104.49deg) translateZ(700px);">
+  <a href="EL DIABLO VISTE DE MODA 2.html">
+          <div class="contenido">
+            <img src="EL DIABLO VISTE DE MODA 2.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(116.10deg) translateZ(700px);">
+   <a href="EL CADAVER DE LA NOVIA.html">
+          <div class="contenido">
+            <img src="EL CADAVER DE LA NOVIA.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(127.71deg) translateZ(700px);">
+     <a href="EL EXTRAÑO MUNDO DE JACK.html">
+          <div class="contenido">
+            <img src="EL EXTRAÑO MUNDO DE JACK.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(139.32deg) translateZ(700px);">
+    <a href="EL PRINCIPE DE EGIPTO.html">
+          <div class="contenido">
+            <img src="EL PRINCIPE DE EGIPTO.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(150.93deg) translateZ(700px);">
+        <a href="FNAF.html">
+          <div class="contenido">
+            <img src="FNAF.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(162.54deg) translateZ(700px);">
+   <a href="GIGANTES DE ACERO.html">
+          <div class="contenido">
+            <img src="GIGANTES DE ACERO.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(174.15deg) translateZ(700px);">
+<a href="HARRY POTTER.html">
+          <div class="contenido">
+            <img src="HARRY POTTER.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(185.76deg) translateZ(700px);">
+ <a href="LA BELLA Y LA BESTIA.html">
+          <div class="contenido">
+            <img src="LA BELLA Y LA BESTIA.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(197.37deg) translateZ(700px);">
+<a href="LAS 12 BAILARINAS.html">
+          <div class="contenido">
+            <img src="LAS 12 BAILARINAS.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(208.98deg) translateZ(700px);">
+ <a href="LOS CABALLEROS DEL ZODIACO.html">
+          <div class="contenido">
+            <img src="LOS CABALLEROS DEL ZODIACO.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(220.59deg) translateZ(700px);">
+ <a href="LOS PIRATAS DEL CARIBE.html">
+          <div class="contenido">
+            <img src="LOS PIRATAS DEL CARIBE.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(232.20deg) translateZ(700px);">
+<a href="LOS VENGADORES.html">
+          <div class="contenido">
+            <img src="LOS VENGADORES.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(243.81deg) translateZ(700px);">
+ <a href="MALCOM.html">
+          <div class="contenido">
+            <img src="MALCOM.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(255.42deg) translateZ(700px);">
+  <a href="MONSTER HIGH.html">
+          <div class="contenido">
+            <img src="MONSTER HIGH.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(267.03deg) translateZ(700px);">
+ <a href="QUE PASO AYER.html">
+          <div class="contenido">
+            <img src="QUE PASO AYER.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(278.64deg) translateZ(700px);">
+ <a href="SANTA CLAUS.html">
+          <div class="contenido">
+            <img src="SANTA CLAUS.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(290.25deg) translateZ(700px);">
+  <a href="SPACE JAM.html">
+          <div class="contenido">
+            <img src="SPACE JAM.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(301.86deg) translateZ(700px);">
+ <a href="SPACE JAM 2.html">
+          <div class="contenido">
+            <img src="SPACE JAM 2.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(313.47deg) translateZ(700px);">
+ <a href="tinkerbell.html">
+          <div class="contenido">
+            <img src="tinkerbell.jpg">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(325.08deg) translateZ(700px);">
+ <a href="UN VIERNES DE LOCOS.html">
+          <div class="contenido">
+            <img src="UN VIERNES DE LOCOS.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(336.69deg) translateZ(700px);">
+ <a href="UN VIERNES DE LOCOS 2.html">
+          <div class="contenido">
+            <img src="UN VIERNES DE LOCOS 2.JPG">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+<div class="card" style="transform: rotateY(348.30deg) translateZ(700px);">
+<a href="W.html">
+          <div class="contenido">
+            <img src="welcome-to-derry.jpg">
+            <div class="info">
+            </div>
+          </div>
+        </a>
+      </div>
+      
+
+    </div>
+  </div>
+
+</body>
+</html>
